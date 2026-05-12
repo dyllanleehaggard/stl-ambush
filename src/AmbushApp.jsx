@@ -649,11 +649,16 @@ function RosterSection({ title, players, colors, onPlayerClick }) {
 }
 
 function PlayerCard({ player, colors, onClick }) {
+  const [imgError, setImgError] = useState(false);
+  const showPhoto = player.photo && !imgError;
   return (
     <button onClick={onClick} className="relative overflow-hidden text-left transition-transform active:scale-[0.98]" style={{ backgroundColor: colors.bgCard, border: `1px solid ${colors.rule}`, borderRadius: '3px' }}>
-      <div className="relative" style={{ aspectRatio: '1/1.1', background: `radial-gradient(ellipse at 50% 30%, ${colors.teal}44 0%, transparent 60%), linear-gradient(180deg, #1a1a1a 0%, #000 100%)` }}>
-        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.04) 2px, rgba(255,255,255,0.04) 4px)` }} />
-        <div className="absolute top-2 right-2 leading-none" style={{ fontSize: '52px', fontFamily: '"Georgia", serif', fontWeight: 700, color: '#ffffff15', letterSpacing: '-0.05em' }}>{player.num}</div>
+      <div className="relative" style={{ aspectRatio: '1/1.1', background: showPhoto ? '#000' : `radial-gradient(ellipse at 50% 30%, ${colors.teal}44 0%, transparent 60%), linear-gradient(180deg, #1a1a1a 0%, #000 100%)` }}>
+        {showPhoto && (
+          <img src={player.photo} alt={player.name} onError={() => setImgError(true)} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', filter: 'grayscale(0.15) contrast(1.05)' }} />
+        )}
+        {!showPhoto && <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.04) 2px, rgba(255,255,255,0.04) 4px)` }} />}
+        <div className="absolute top-2 right-2 leading-none" style={{ fontSize: '52px', fontFamily: '"Georgia", serif', fontWeight: 700, color: showPhoto ? '#ffffffaa' : '#ffffff15', letterSpacing: '-0.05em', textShadow: showPhoto ? '0 2px 8px rgba(0,0,0,0.7)' : 'none' }}>{player.num}</div>
         {player.tag && (
           <div className="absolute top-2 left-2">
             <div className="px-1.5 py-0.5" style={{ backgroundColor: colors.pink, borderRadius: '2px' }}>
@@ -967,11 +972,17 @@ function PlayerProfile({ player, colors, isDark, setTheme, onBack }) {
       <div className="overflow-y-auto pb-32" style={{ height: 'calc(100% - 100px)' }}>
         {/* Hero photo area */}
         <div className="relative mx-5 mt-4 overflow-hidden" style={{ borderRadius: '4px', aspectRatio: '4/5', backgroundColor: '#000' }}>
-          <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse at 50% 30%, ${colors.teal}66 0%, transparent 55%), radial-gradient(ellipse at 50% 90%, ${colors.pink}33 0%, transparent 60%), linear-gradient(180deg, #1a1a1a 0%, #000 100%)` }} />
-          <div className="absolute inset-0 opacity-30" style={{ backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.04) 2px, rgba(255,255,255,0.04) 4px)` }} />
+          {player.photo ? (
+            <img src={player.photo} alt={player.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
+          ) : (
+            <>
+              <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse at 50% 30%, ${colors.teal}66 0%, transparent 55%), radial-gradient(ellipse at 50% 90%, ${colors.pink}33 0%, transparent 60%), linear-gradient(180deg, #1a1a1a 0%, #000 100%)` }} />
+              <div className="absolute inset-0 opacity-30" style={{ backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.04) 2px, rgba(255,255,255,0.04) 4px)` }} />
+            </>
+          )}
 
           {/* Massive jersey number */}
-          <div className="absolute top-4 right-4 leading-none" style={{ fontSize: '160px', fontFamily: '"Georgia", serif', fontWeight: 700, color: '#ffffff10', letterSpacing: '-0.05em' }}>{player.num}</div>
+          <div className="absolute top-4 right-4 leading-none" style={{ fontSize: '160px', fontFamily: '"Georgia", serif', fontWeight: 700, color: player.photo ? '#ffffff20' : '#ffffff10', letterSpacing: '-0.05em', textShadow: player.photo ? '0 4px 16px rgba(0,0,0,0.6)' : 'none' }}>{player.num}</div>
 
           {/* Tag if any */}
           {player.tag && (

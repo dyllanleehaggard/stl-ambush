@@ -1,0 +1,54 @@
+{
+  "_comment": "St. Louis Ambush coaching staff and front office. Photo URLs verified from stlambush.com/coaching-staff on 2026-05-12. To update: change a value below, push to GitHub, deploy is automatic.",
+  "lastUpdated": "2026-05-12",
+  "coaches": [
+    {
+      "id": "locker",
+      "name": "Jeff Locker",
+      "title": "Head Coach",
+      "subtitle": "Co-Owner / General Manager",
+      "photo": "https://digitalshift-assets.sfo2.cdn.digitaloceanspaces.com/pw/f6f8a8f7-869b-457d-b9fb-14cc859f6e4d/p-c375beb2-1a23-494c-bef4-026c7f8e4a4a/1611431073-circle.jpg",
+      "bio": "Co-owner of the Ambush since December 2019 and Head Coach since 2021. A native of St. Charles County, Locker brings the same focus to coaching that he does as a wealth manager — understand the goals, build the plan to meet them.",
+      "isHero": true,
+      "badge": "Coach of the Year"
+    },
+    {
+      "id": "swanner",
+      "name": "Jamie Swanner",
+      "title": "Assistant Coach",
+      "subtitle": "Goalkeeper Coach",
+      "photo": "https://digitalshift-assets.sfo2.cdn.digitaloceanspaces.com/pw/f6f8a8f7-869b-457d-b9fb-14cc859f6e4d/p-4b0ae545-0ddb-402e-8f96-468722fcdc79/1621474106-circle.jpg",
+      "bio": "St. Louis indoor soccer legend. Played 16 pro seasons. Instrumental in the Ambush's 1994-95 NPSL Championship. 1984 US Olympic Team member. Eighth season as Assistant Coach in 2025-26.",
+      "isHero": false,
+      "badge": null
+    },
+    {
+      "id": "alberty",
+      "name": "Donnie Alberty",
+      "title": "Assistant Coach",
+      "subtitle": "GM of Soccer Operations / Director of Scouting",
+      "photo": "https://digitalshift-assets.sfo2.cdn.digitaloceanspaces.com/pw/f6f8a8f7-869b-457d-b9fb-14cc859f6e4d/p-00f2f741-2451-44c1-8a28-c380c033eac8/1621474012-circle.jpg",
+      "bio": "Joined the Ambush as Assistant Coach in November 2020, added Director of Scouting in 2023 and GM of Soccer Operations in 2025. Also Head Coach of Men's Soccer at Fontbonne University. 25+ years of coaching experience.",
+      "isHero": false,
+      "badge": null
+    }
+  ],
+  "frontOffice": [
+    {
+      "name": "Shelly Clark",
+      "title": "Co-Owner"
+    },
+    {
+      "name": "Will Clark",
+      "title": "Co-Owner"
+    },
+    {
+      "name": "Heather Locker",
+      "title": "Co-Owner"
+    },
+    {
+      "name": "Jim Fossell",
+      "title": "Media Relations Manager"
+    }
+  ]
+}

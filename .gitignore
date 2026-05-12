@@ -31,3 +31,7 @@ yarn-error.log*
 .cache/
 .parcel-cache/
 .vite/
+debug-output/
+*.bak
+src/data/schedule-scraped-raw.json
+scripts/diagnose-scrape.mjs
